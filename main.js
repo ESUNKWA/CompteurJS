@@ -1,7 +1,35 @@
+ $(function(){
+    let obj = {};
+    let dte;
+    let dateLancmnt;
+    let jj, hh, mm, ss;
 
-let dateLancmnt = new Date(2021,3,30,15,30,0);
-let jj, hh, mm, ss;
-fctCompteur();
+      let btn = $('button');
+      let dateslect = $('#dateselct');
+      $(btn).on('click', (event)=>{
+          event.preventDefault();
+          dte = $(dateslect).val();
+         dates = dte.split('T')[0];
+         heures = dte.split('T')[1];
+
+
+
+         obj.year = dates.split('-')[0];
+         obj.month = dates.split('-')[1];
+         obj.dd = dates.split('-')[2];
+
+         obj.hh = heures.split(':')[0];
+         obj.mm = heures.split(':')[1];
+         obj.ss = heures.split(':')[2];
+         let dateLancmnt = new Date(obj.year,3,30,15,30,0);
+         console.log(obj )
+         console.log(dateLancmnt )
+
+         fctCompteur();
+
+      });
+
+
 function fctCompteur(){
     
     let dateAct = new Date();
@@ -28,6 +56,8 @@ function fctCompteur(){
 
 
   }
+
+  })
 
 
 
