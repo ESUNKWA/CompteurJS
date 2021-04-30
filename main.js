@@ -1,4 +1,7 @@
  $(function(){
+
+    $('.card-group').hide();
+
     let obj = {};
     let dte;
     let dtesys = new Date();
@@ -33,7 +36,7 @@
          
          dateLancmnt = new Date(obj.year,obj.month,obj.dd,obj.hh,obj.mm,obj.ss);
          dateLancmnt1 = new Date(2021,03,01,17,45,0);
-         console.log(obj);
+         $('.card-group').show();
        
          fctCompteur();
 
@@ -62,6 +65,10 @@
          document.getElementById('hh').innerHTML = (hh < 10) ? '0'+hh : hh;
          document.getElementById('mm').innerHTML = (mm < 10) ? '0'+mm : mm;
          document.getElementById('ss').innerHTML = (ss < 10) ? '0'+ss : ss;
+
+         if( jj== 0 && hh == 0 && mm == 0 && ss == 0 ){
+            return;
+         }
     
         setTimeout(fctCompteur, 1000)
     
